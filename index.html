@@ -391,7 +391,7 @@
             tool_4: ['RULE', 'REGLA', 'RULER'],
             tool_5: ['TRY SQUARE', 'ESCUADRA DE TOPE'],
             tool_6: ['MARKING GAUGE', 'GRAMIL'],
-            tool_7: ['CHISEL', 'FORMON', 'WOOD CHISEL', 'CINCEL'], // Corrected typo: 'CINCEl' -> 'CINCEL' and moved 'FORMON' for feedback
+            tool_7: ['CHISEL', 'FORMON', 'WOOD CHISEL', 'CINCEL'], 
             tool_8: ['PLANE', 'CEPILLO DE CARPINTERO', 'HAND PLANE'],
             tool_9: ['FILE', 'LIMA', 'ENGINEERS FILE'],
             tool_10: ['DRILL PRESS', 'TALADRO DE COLUMNA', 'PILLAR DRILL'],
@@ -421,17 +421,16 @@
             const englishAnswer = correctAnswers[0].charAt(0) + correctAnswers[0].slice(1).toLowerCase();
             
             // Spanish (Primary answer, index 1) - Capitalize first letter only
-            // We ensure the correct Spanish term is at index 1 in the object definition above
             const spanishRaw = correctAnswers.length > 1 ? correctAnswers[1] : correctAnswers[0]; 
             const spanishAnswer = spanishRaw.charAt(0) + spanishRaw.slice(1).toLowerCase();
 
             // Display feedback for the individual question
             if (isCorrect) {
-                 resultElement.innerHTML = '¡Correcto! (Correct!)';
+                 resultElement.innerHTML = 'Correct!';
                  resultElement.className = 'answer-correct';
             } else {
-                 // Enhanced feedback with both English (bold) and Spanish (parenthesis)
-                 resultElement.innerHTML = `¡Incorrecto! (Incorrect.) Respuestas correctas: <strong>${englishAnswer}</strong> (${spanishAnswer})`;
+                 // Enhanced feedback with only the answers being bilingual
+                 resultElement.innerHTML = `Incorrect. Correct answers: <strong>${englishAnswer}</strong> (${spanishAnswer})`;
                  resultElement.className = 'answer-incorrect';
             }
 
@@ -446,23 +445,25 @@
             let colorClass;
 
             if (percentage >= 90) {
-                title = "¡Excelente! (Excellent!)";
-                message = "You've shown mastery of the woods and tools! You're definitely ready for the IGCSE material. ¡Sigue así!";
+                title = "Excellent!";
+                message = "You've shown mastery of the woods and tools! You're definitely ready for the IGCSE material. Keep it up! (¡Sigue así!)";
                 colorClass = "text-green-600 border-green-600";
             } else if (percentage >= 75) {
-                title = "¡Buen Trabajo! (Good Job!)";
+                title = "Good Job!";
                 message = "Solid effort! You know most of the core materials. Just review the specific woods or tools you missed to secure a top grade.";
                 colorClass = "text-yellow-600 border-yellow-600";
             } else if (percentage >= 50) {
-                title = "Sigue Estudiando (Keep Studying!)";
+                title = "Keep Studying!";
                 message = "You have a good foundational knowledge. Focus on reviewing the tool names and manufactured boards—that will boost your score significantly.";
                 colorClass = "text-orange-600 border-orange-600";
             } else {
-                title = "A Revisar (Time to Review!)";
-                message = "Let's review the basics together. Take another look at the images and the correct English/Spanish answers provided below. ¡Ánimo!";
+                title = "Time to Review!";
+                message = "Let's review the basics together. Take another look at the images and the correct English/Spanish answers provided below. Cheer up! (¡Ánimo!)";
                 colorClass = "text-red-600 border-red-600";
             }
             
+            // Note: I kept the overall feedback header as 'Your Results (Partes A y B)' for contextual consistency, 
+            // but the internal message block is primarily English as requested.
             return `<div class="p-4 rounded-lg mt-4 mb-6 ${colorClass} bg-opacity-10 border-2">
                 <h3 class="text-2xl font-bold">${title}</h3>
                 <p class="text-lg mt-1">${message}</p>
