@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IGCSE D&T Pre-Test: Woods and Tools</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f7f9fb; }
+        .card { background-color: white; border-radius: 1rem; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+        input[type="text"], textarea { border: 1px solid #d1d5db; padding: 0.5rem; border-radius: 0.5rem; transition: border-color 0.2s; }
+        input[type="text"]:focus, textarea:focus { border-color: #3b82f6; outline: none; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5); }
+        .answer-correct { background-color: #d1fae5; border-left: 4px solid #10b981; padding: 0.5rem; margin-top: 0.5rem; border-radius: 0.5rem; }
+        .answer-incorrect { background-color: #fee2e2; border-left: 4px solid #ef4444; padding: 0.5rem; margin-top: 0.5rem; border-radius: 0.5rem; }
+        .image-placeholder { 
+            height: 100px; 
+            width: 100px; 
+            background-color: #e5e7eb; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            border-radius: 0.5rem; 
+            font-size: 0.75rem; 
+            color: #4b5563;
+            text-align: center;
+            line-height: 1.2;
+            overflow: hidden; /* Ensure images fit inside */
+        }
+        /* Style for the images within the placeholders */
+        .image-placeholder > img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8">
+
+    <div class="max-w-4xl mx-auto">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-extrabold text-gray-800">D&T Pre-Test: Woods and Tools</h1>
+            <p class="text-gray-500 mt-2">IGCSE 0445 | Time: 20 minutes</p>
+        </header>
+
+        <form id="quizForm" class="space-y-8">
+            <div class="card p-6 sm:p-8">
+                <h2 class="text-2xl font-semibold text-gray-700 mb-4 border-b pb-2">Part A: Wood Identification (8 marks)</h2>
+                <p class="text-sm text-gray-500 mb-6">Instructions: <strong>Examine the corresponding wood sample (Wood 1 - Wood 8)</strong> and look at the image to identify the type of wood shown. (Auto-graded, English or Spanish accepted)</p>
+
+                <!-- Wood Items -->
+                <div class="space-y-4" id="partA">
+                    <!-- Oak -->
+                    <div class="flex items-center space-x-4">
+                        <div class="image-placeholder flex-shrink-0">
+                            <img src="img/Oak.jpg" alt="Close-up of Oak wood grain." onerror="this.onerror=null; this.src='https://placehold.co/100x100/e5e7eb/4b5563?text=Image+Not+Found'">
+                        </div>
+                        <label class="flex flex-col flex-grow">
+                            <span class="text-gray-700">Wood 1:</span>
+                            <input type="text" id="wood_1" class="w-full mt-1" placeholder="Type of Wood / Tipo de Madera">
+                            <div id="wood_1_result" class="text-xs"></div>
+                        </label>
+                    </div>
+
+                    <!-- Pine -->
+                    <div class="flex items-center space-x-4">
+                        <div class="image-placeholder flex-shrink-0">
+                            <img src="img/pine-softwood-lumber.png" alt="Stack of Pine softwood lumber." onerror="this.onerror=null; this.src='https://placehold.co/100x100/e5e7eb/4b5563?text=Image+Not+Found'">
+                        </div>
+                        <label class="flex flex-col flex-grow">
+                            <span class="text-gray-700">Wood 2:</span>
+                            <input type="text" id="wood_2" class="w-full mt-1" placeholder="Type of Wood / Tipo de Madera">
+                            <div id="wood_2_result" class="text-xs"></div>
+                        </label>
+                    </div>
+
+                    <!-- Mahogany -->
+                    <div class="flex items-center space-x-4">
+                        <div class="image-placeholder flex-shrink-0">
+                            <img src="img/mahogany.png" alt="Reddish Mahogany hardwood plank." onerror="this.onerror=null; this.src='https://placehold.co/100x100/e5e7eb/4b5563?text=Image+Not+Found'">
+                        </div>
+                        <label class="flex flex-col flex-grow">
+                            <span class="text-gray-700">Wood 3:</span>
+                            <input type="text" id="wood_3" class="w-full mt-1" placeholder="Type of Wood / Tipo de Madera">
+                            <div id="wood_3_result" class="text-xs"></div>
+                        </label>
+                    </div>
+
+                    <!-- Cedar -->
+                    <div class="flex items-center space-x-4">
+                        <div class="image-placeholder flex-shrink-0">
+                            <img src="img/cedar_slabs.png" alt="Cedar wood plank with reddish hue." onerror="this.onerror=null; this.src='https://placehold.co/100x100/e5e7eb/4b5563?text=Image+Not+Found'">
+                        </div>
+                        <label class="flex flex-col flex-grow">
+                            <span class="text-gray-700">Wood 4:</span>
+                            <input type="text" id="wood_4" class="w-full mt-1" placeholder="Type of Wood / Tipo de Madera">
+                            <div id="wood_4_result" class="text-xs"></div>
+                        </label>
+                    </div>
+                    
+                    <!-- Plywood -->
+                    <div class="flex items-center space-x-4">
+                        <div class="image-placeholder flex-shrink-0">
+                            <img src="img/plywood-panels.png" alt="Plywood cross-section showing veneer layers." onerror="this.onerror=null; this.src='https://placehold.co/100x100/e5e7eb/4b5563?text=Image+Not+Found'">
+                        </div>
+                        <label class="flex flex-col flex-grow">
+                            <span class="text-gray-700">Wood 5:</span>
+                            <input type="text" id="wood_5" class="w-full mt-1" placeholder="Type of Board / Tablero">
+                            <div id="wood_5_result" class="text-xs"></div>
+                        </label>
+                    </div>
+
+                    <!-- MDF -->
+                    <div class="flex items-center space-x-4">
+                        <div class="image-placeholder flex-shrink-0">
+                            <img src="img/mdf.jpg" alt="Edge view of MDF (Medium Density Fibreboard)." onerror="this.onerror=null; this.src='https://placehold.co/100x100/e5e7eb/4b5563?text=Image+Not+Found'">
+                        </div>
+                        <label class="flex flex-col flex-grow">
+                            <span class="text-gray-700">Wood 6:</span>
+                            <input type="text" id="wood_6" class="w-full mt-1" placeholder="Type of Board / Tablero (Acronym)">
+                            <div id="wood_6_result" class="text-xs"></div>
+                        </label>
+                    </div>
+
+                    <!-- Chipboard -->
+                    <div class="flex items-center space-x-4">
+                        <div class="image-placeholder flex-shrink-0">
+                            <img src="img/Particleboard.jpg" alt="Surface of Chipboard/Particle board." onerror="this.onerror=null; this.src='https://placehold.co/100x100/e5e7eb/4b5563?text=Image+Not+Found'">
+                        </div>
+                        <label class="flex flex-col flex-grow">
+                            <span class="text-gray-700">Wood 7:</span>
+                            <input type="text" id="wood_7" class="w-full mt-1" placeholder="Type of Board / Tablero">
+                            <div id="wood_7_result" class="text-xs"></div>
+                        </label>
+                    </div>
+
+                    <!-- Teak -->
+                    <div class="flex items-center space-x-4">
+                        <div class="image-placeholder flex-shrink-0">
+                            <img src="img/teak.png" alt="Teak wood surface with characteristic grain." onerror="this.onerror=null; this.src='https://placehold.co/100x100/e5e7eb/4b5563?text=Image+Not+Found'">
+                        </div>
+                        <label class="flex flex-col flex-grow">
+                            <span class="text-gray-700">Wood 8:</span>
+                            <input type="text" id="wood_8" class="w-full mt-1" placeholder="Type of Wood / Tipo de Madera">
+                            <div id="wood_8_result" class="text-xs"></div>
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+            
+            <div class="card p-6 sm:p-8">
+                <h2 class="text-2xl font-semibold text-gray-700 mb-4 border-b pb-2">Part B: Tool Identification (12 marks)</h2>
+                <p class="text-sm text-gray-500 mb-6">Instructions: Match the tool to its correct name. (Auto-graded, English or Spanish accepted)</p>
+                <div class="space-y-4" id="partB">
+
+                    <!-- Tool Bank -->
+                    <div class="bg-indigo-50 p-4 rounded-lg mb-6 text-sm">
+                        <span class="font-bold text-indigo-800">Word Bank (English):</span> Hacksaw, Tenon saw, Panel saw, Rule, Try square, Marking gauge, Chisel, Plane, File, Drill press, Mallet, Clamp
+                        <br><span class="font-bold text-indigo-800">Banco de palabras (Español):</span> Sierra para metales, Serrucho de costilla, Serrucho de mano, Regla, Escuadra de tope, Gramil, Formón, Cepillo de carpintero, Lima, Taladro de columna, Mazo, Sargento
+                    </div>
+
+                    <!-- Hacksaw -->
+                    <div class="flex items-center space-x-4">
+                        <div class="image-placeholder flex-shrink-0">
+                            <img src="https://placehold.co/100x100/525252/D9D9D9?text=Hacksaw" alt="Metal frame Hacksaw." onerror="this.onerror=null; this.src='https://placehold.co/100x100/e5e7eb/4b5563?text=Image+Not+Found'">
+                        </div>
+                        <label class="flex flex-col flex-grow">
+                            <span class="text-gray-700">Tool 1:</span>
+                            <input type="text" id="tool_1" class="w-full mt-1" placeholder="Tool Name / Nombre de la Herramienta">
+                            <div id="tool_1_result" class="text-xs"></div>
+                        </label>
+                    </div>
+
+                    <!-- Tenon Saw -->
+                    <div class="flex items-center space-x-4">
+                        <div class="image-placeholder flex-shrink-0">
+                            <img src="img/tenon_saw.png " alt="Back saw or Tenon saw with a spine." onerror="this.onerror=null; this.src='https://placehold.co/100x100/e5e7eb/4b5563?text=Image+Not+Found'">
+                        </div>
+                        <label class="flex flex-col flex-grow">
+                            <span class="text-gray-700">Tool 2:</span>
+                            <input type="text" id="tool_2" class="w-full mt-1" placeholder="Tool Name / Nombre de la Herramienta">
+                            <div id="tool_2_result" class="text-xs"></div>
+                        </label>
+                    </div>
+
+                    <!-- Panel Saw -->
+                    <div class="flex items-center space-x-4">
+                        <div class="image-placeholder flex-shrink-0">
+                            <img src="img/hand_panel_saw.jpg" alt="Hand Panel saw for rough cutting." onerror="this.onerror=null; this.src='https://placehold.co/100x100/e5e7eb/4b5563?text=Image+Not+Found'">
+                        </div>
+                        <label class="flex flex-col flex-grow">
+                            <span class="text-gray-700">Tool 3:</span>
+                            <input type="text" id="tool_3" class="w-full mt-1" placeholder="Tool Name / Nombre de la Herramienta">
+                            <div id="tool_3_result" class="text-xs"></div>
+                        </label>
+                    </div>
+
+                    <!-- Rule -->
+                    <div class="flex items-center space-x-4">
+                        <div class="image-placeholder flex-shrink-0">
+                            <img src="img/steel_ruler.jpg" alt="Steel Rule/Ruler." onerror="this.onerror=null; this.src='https://placehold.co/100x100/e5e7eb/4b5563?text=Image+Not+Found'">
+                        </div>
+                        <label class="flex flex-col flex-grow">
+                            <span class="text-gray-700">Tool 4:</span>
+                            <input type="text" id="tool_4" class="w-full mt-1" placeholder="Tool Name / Nombre de la Herramienta">
+                            <div id="tool_4_result" class="text-xs"></div>
+                        </label>
+                    </div>
+
+                    <!-- Try Square -->
+                    <div class="flex items-center space-x-4">
+                        <div class="image-placeholder flex-shrink-0">
+                            <img src="img/try_square.jpg" alt="Try square tool for checking 90-degree angles." onerror="this.onerror=null; this.src='https://placehold.co/100x100/e5e7eb/4b5563?text=Image+Not+Found'">
+                        </div>
+                        <label class="flex flex-col flex-grow">
+                            <span class="text-gray-700">Tool 5:</span>
+                            <input type="text" id="tool_5" class="w-full mt-1" placeholder="Tool Name / Nombre de la Herramienta">
+                            <div id="tool_5_result" class="text-xs"></div>
+                        </label>
+                    </div>
+
+                    <!-- Marking Gauge -->
+                    <div class="flex items-center space-x-4">
+                        <div class="image-placeholder flex-shrink-0">
+                            <img src="img/marking_gauge.jpg" alt="Marking gauge for parallel lines." onerror="this.onerror=null; this.src='https://placehold.co/100x100/e5e7eb/4b5563?text=Image+Not+Found'">
+                        </div>
+                        <label class="flex flex-col flex-grow">
+                            <span class="text-gray-700">Tool 6:</span>
+                            <input type="text" id="tool_6" class="w-full mt-1" placeholder="Tool Name / Nombre de la Herramienta">
+                            <div id="tool_6_result" class="text-xs"></div>
+                        </label>
+                    </div>
+                    
+                    <!-- Chisel -->
+                    <div class="flex items-center space-x-4">
+                        <div class="image-placeholder flex-shrink-0">
+                            <img src="img/chisel.jpg" alt="Woodworking Chisel." onerror="this.onerror=null; this.src='https://placehold.co/100x100/e5e7eb/4b5563?text=Image+Not+Found'">
+                        </div>
+                        <label class="flex flex-col flex-grow">
+                            <span class="text-gray-700">Tool 7:</span>
+                            <input type="text" id="tool_7" class="w-full mt-1" placeholder="Tool Name / Nombre de la Herramienta">
+                            <div id="tool_7_result" class="text-xs"></div>
+                        </label>
+                    </div>
+                    
+                    <!-- Hand Plane -->
+                    <div class="flex items-center space-x-4">
+                        <div class="image-placeholder flex-shrink-0">
+                            <img src="img/hand_plane.jpg" alt="Smoothing or block Hand Plane." onerror="this.onerror=null; this.src='https://placehold.co/100x100/e5e7eb/4b5563?text=Image+Not+Found'">
+                        </div>
+                        <label class="flex flex-col flex-grow">
+                            <span class="text-gray-700">Tool 8:</span>
+                            <input type="text" id="tool_8" class="w-full mt-1" placeholder="Tool Name / Nombre de la Herramienta">
+                            <div id="tool_8_result" class="text-xs"></div>
+                        </label>
+                    </div>
+
+                    <!-- File -->
+                    <div class="flex items-center space-x-4">
+                        <div class="image-placeholder flex-shrink-0">
+                            <img src="img/file.png" alt="Engineers file tool." onerror="this.onerror=null; this.src='https://placehold.co/100x100/e5e7eb/4b5563?text=Image+Not+Found'">
+                        </div>
+                        <label class="flex flex-col flex-grow">
+                            <span class="text-gray-700">Tool 9:</span>
+                            <input type="text" id="tool_9" class="w-full mt-1" placeholder="Tool Name / Nombre de la Herramienta">
+                            <div id="tool_9_result" class="text-xs"></div>
+                        </label>
+                    </div>
+
+                    <!-- Drill Press -->
+                    <div class="flex items-center space-x-4">
+                        <div class="image-placeholder flex-shrink-0">
+                            <img src="img/pillar_drill.jpg" alt="Pillar Drill Press machine." onerror="this.onerror=null; this.src='https://placehold.co/100x100/e5e7eb/4b5563?text=Image+Not+Found'">
+                        </div>
+                        <label class="flex flex-col flex-grow">
+                            <span class="text-gray-700">Tool 10:</span>
+                            <input type="text" id="tool_10" class="w-full mt-1" placeholder="Tool Name / Nombre de la Herramienta">
+                            <div id="tool_10_result" class="text-xs"></div>
+                        </label>
+                    </div>
+
+                    <!-- Mallet -->
+                    <div class="flex items-center space-x-4">
+                        <div class="image-placeholder flex-shrink-0">
+                            <img src="img/malet.png" alt="Wooden Mallet with a large head." onerror="this.onerror=null; this.src='https://placehold.co/100x100/e5e7eb/4b5563?text=Image+Not+Found'">
+                        </div>
+                        <label class="flex flex-col flex-grow">
+                            <span class="text-gray-700">Tool 11:</span>
+                            <input type="text" id="tool_11" class="w-full mt-1" placeholder="Tool Name / Nombre de la Herramienta">
+                            <div id="tool_11_result" class="text-xs"></div>
+                        </label>
+                    </div>
+
+                    <!-- Clamp -->
+                    <div class="flex items-center space-x-4">
+                        <div class="image-placeholder flex-shrink-0">
+                            <img src="img/c_clamp.png" alt="G-Clamp or C-Clamp tool." onerror="this.onerror=null; this.src='https://placehold.co/100x100/e5e7eb/4b5563?text=Image+Not+Found'">
+                        </div>
+                        <label class="flex flex-col flex-grow">
+                            <span class="text-gray-700">Tool 12:</span>
+                            <input type="text" id="tool_12" class="w-full mt-1" placeholder="Tool Name / Nombre de la Herramienta">
+                            <div id="tool_12_result" class="text-xs"></div>
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="card p-6 sm:p-8">
+                <h2 class="text-2xl font-semibold text-gray-700 mb-4 border-b pb-2">Part C: Bonus Questions (Optional - 5 marks)</h2>
+                <p class="text-sm text-gray-500 mb-6">Instructions: Please type your answers below. (Manual review required)</p>
+
+                <div class="space-y-4">
+                    <label class="block">
+                        <span class="text-gray-700 font-medium">1. Name one difference between hardwood and softwood:</span>
+                        <textarea id="bonus_1" rows="2" class="w-full mt-1" placeholder="Your answer..."></textarea>
+                    </label>
+
+                    <label class="block">
+                        <span class="text-gray-700 font-medium">2. What is the main advantage of using manufactured boards like MDF?</span>
+                        <textarea id="bonus_2" rows="2" class="w-full mt-1" placeholder="Your answer..."></textarea>
+                    </label>
+
+                    <label class="block">
+                        <span class="text-gray-700 font-medium">3. Which tool would you use to mark parallel lines on wood?</span>
+                        <input type="text" id="bonus_3" class="w-full mt-1" placeholder="Tool Name">
+                    </label>
+
+                    <label class="block">
+                        <span class="text-gray-700 font-medium">4. Name one safety consideration when using a drill press:</span>
+                        <textarea id="bonus_4" rows="2" class="w-full mt-1" placeholder="Your answer..."></textarea>
+                    </label>
+
+                    <label class="block">
+                        <span class="text-gray-700 font-medium">5. Which type of saw is best for cutting joints?</span>
+                        <input type="text" id="bonus_5" class="w-full mt-1" placeholder="Type of Saw">
+                    </label>
+                </div>
+            </div>
+
+            <div class="flex justify-center pt-4">
+                <button type="button" onclick="submitQuiz()" class="px-8 py-3 bg-blue-600 text-white font-bold rounded-full hover:bg-blue-700 transition duration-300 transform hover:scale-105 shadow-lg">
+                    Submit Quiz & Get Score
+                </button>
+            </div>
+        </form>
+
+        <div id="results" class="card p-6 sm:p-8 mt-8 hidden">
+            <h2 class="text-3xl font-bold text-center mb-4 text-gray-800">Your Results (Partes A y B)</h2>
+            <div id="feedbackArea">
+                <!-- Feedback message will be inserted here -->
+            </div>
+            <div class="text-center text-xl font-semibold mb-6">
+                Total Score: <span id="finalScore" class="text-4xl text-green-600">0</span> / 20
+            </div>
+            <p class="text-center text-sm text-gray-500 italic">
+                Nota: Las respuestas de la Parte C requieren revisión manual, pero las respuestas correctas se proporcionan a continuación para estudio inmediato.
+            </p>
+
+            <!-- Correct Answers for Reference -->
+            <div class="mt-6 border-t pt-4">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Answers for Review (Part C)</h3>
+                <ul class="list-disc list-inside space-y-2 text-gray-600">
+                    <li><strong>Hardwood/Softwood Difference (Diferencia):</strong> Hardwoods come from deciduous trees (lose leaves), softwoods come from coniferous trees (evergreen). Hardwoods are generally denser.</li>
+                    <li><strong>MDF Advantage (Ventaja del MDF):</strong> They are dimensionally stable, have no natural defects (knots), and utilize waste wood.</li>
+                    <li><strong>Parallel Lines Tool (Líneas Paralelas):</strong> <strong>Marking Gauge</strong> (Gramil - or Mortise Gauge).</li>
+                    <li><strong>Drill Press Safety (Seguridad del Taladro de Columna):</strong> Tie back long hair, remove loose clothing/jewelry, secure the workpiece with a clamp/vice.</li>
+                    <li><strong>Joint Saw (Sierra para Uniones):</strong> <strong>Tenon Saw</strong> (Serrucho de costilla - or Dovetail Saw).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const CORRECT_ANSWERS = {
+            // Part A: Wood Identification (English, Spanish, Synonyms...)
+            wood_1: ['OAK', 'ROBLE'],
+            wood_2: ['PINE', 'PINO'],
+            wood_3: ['MAHOGANY', 'CAOBA'],
+            wood_4: ['CEDAR', 'CEDRO'],
+            wood_5: ['PLYWOOD', 'CONTRACHAPADO', 'MADERA CONTRACHAPADA'],
+            wood_6: ['MDF', 'TABLERO DE FIBRA DE DENSIDAD MEDIA', 'MEDIUM DENSITY FIBREBOARD'],
+            wood_7: ['CHIPBOARD', 'AGLOMERADO', 'PARTICLE BOARD', 'TABLERO DE PARTICULAS'],
+            wood_8: ['TEAK', 'TECA'],
+
+            // Part B: Tool Identification (English, Spanish, Synonyms...)
+            tool_1: ['HACKSAW', 'SIERRA PARA METALES'],
+            tool_2: ['TENON SAW', 'SERRUCHO DE COSTILLA', 'SIERRA DE INGLETE'],
+            tool_3: ['PANEL SAW', 'SERRUCHO DE MANO', 'SERRUCHO', 'SIERRA DE MANO'],
+            tool_4: ['RULE', 'REGLA', 'RULER'],
+            tool_5: ['TRY SQUARE', 'ESCUADRA DE TOPE'],
+            tool_6: ['MARKING GAUGE', 'GRAMIL'],
+            tool_7: ['CHISEL', 'FORMON', 'WOOD CHISEL', 'CINCEL'], // Corrected typo: 'CINCEl' -> 'CINCEL' and moved 'FORMON' for feedback
+            tool_8: ['PLANE', 'CEPILLO DE CARPINTERO', 'HAND PLANE'],
+            tool_9: ['FILE', 'LIMA', 'ENGINEERS FILE'],
+            tool_10: ['DRILL PRESS', 'TALADRO DE COLUMNA', 'PILLAR DRILL'],
+            tool_11: ['MALLET', 'MAZO', 'WOODEN MALLET'],
+            tool_12: ['CLAMP', 'SARGENTO', 'G-CLAMP', 'C-CLAMP', 'ABRAZADERA'],
+        };
+
+        const totalPossibleScore = 20;
+
+        function checkAnswer(id, correctAnswers) {
+            const inputElement = document.getElementById(id);
+            const resultElement = document.getElementById(id + '_result');
+            // Normalize input for case-insensitive checking and trimming spaces
+            const userAnswer = inputElement.value.toUpperCase().trim();
+            let isCorrect = false;
+
+            // Check if the user's answer is in the list of correct answers
+            for (const answer of correctAnswers) {
+                if (userAnswer === answer) {
+                    isCorrect = true;
+                    break;
+                }
+            }
+
+            // Prepare English and Spanish answers for detailed feedback
+            // English (Primary answer, index 0) - Capitalize first letter only
+            const englishAnswer = correctAnswers[0].charAt(0) + correctAnswers[0].slice(1).toLowerCase();
+            
+            // Spanish (Primary answer, index 1) - Capitalize first letter only
+            // We ensure the correct Spanish term is at index 1 in the object definition above
+            const spanishRaw = correctAnswers.length > 1 ? correctAnswers[1] : correctAnswers[0]; 
+            const spanishAnswer = spanishRaw.charAt(0) + spanishRaw.slice(1).toLowerCase();
+
+            // Display feedback for the individual question
+            if (isCorrect) {
+                 resultElement.innerHTML = '¡Correcto! (Correct!)';
+                 resultElement.className = 'answer-correct';
+            } else {
+                 // Enhanced feedback with both English (bold) and Spanish (parenthesis)
+                 resultElement.innerHTML = `¡Incorrecto! (Incorrect.) Respuestas correctas: <strong>${englishAnswer}</strong> (${spanishAnswer})`;
+                 resultElement.className = 'answer-incorrect';
+            }
+
+            return isCorrect ? 1 : 0;
+        }
+
+        function getFeedback(score, maxScore) {
+            const percentage = (score / maxScore) * 100;
+
+            let title;
+            let message;
+            let colorClass;
+
+            if (percentage >= 90) {
+                title = "¡Excelente! (Excellent!)";
+                message = "You've shown mastery of the woods and tools! You're definitely ready for the IGCSE material. ¡Sigue así!";
+                colorClass = "text-green-600 border-green-600";
+            } else if (percentage >= 75) {
+                title = "¡Buen Trabajo! (Good Job!)";
+                message = "Solid effort! You know most of the core materials. Just review the specific woods or tools you missed to secure a top grade.";
+                colorClass = "text-yellow-600 border-yellow-600";
+            } else if (percentage >= 50) {
+                title = "Sigue Estudiando (Keep Studying!)";
+                message = "You have a good foundational knowledge. Focus on reviewing the tool names and manufactured boards—that will boost your score significantly.";
+                colorClass = "text-orange-600 border-orange-600";
+            } else {
+                title = "A Revisar (Time to Review!)";
+                message = "Let's review the basics together. Take another look at the images and the correct English/Spanish answers provided below. ¡Ánimo!";
+                colorClass = "text-red-600 border-red-600";
+            }
+            
+            return `<div class="p-4 rounded-lg mt-4 mb-6 ${colorClass} bg-opacity-10 border-2">
+                <h3 class="text-2xl font-bold">${title}</h3>
+                <p class="text-lg mt-1">${message}</p>
+            </div>`;
+        }
+
+        function submitQuiz() {
+            let score = 0;
+            const woodKeys = ['wood_1', 'wood_2', 'wood_3', 'wood_4', 'wood_5', 'wood_6', 'wood_7', 'wood_8'];
+            const toolKeys = ['tool_1', 'tool_2', 'tool_3', 'tool_4', 'tool_5', 'tool_6', 'tool_7', 'tool_8', 'tool_9', 'tool_10', 'tool_11', 'tool_12'];
+
+            // Grade Part A (8 marks)
+            woodKeys.forEach(key => {
+                score += checkAnswer(key, CORRECT_ANSWERS[key]);
+            });
+
+            // Grade Part B (12 marks)
+            toolKeys.forEach(key => {
+                score += checkAnswer(key, CORRECT_ANSWERS[key]);
+            });
+
+            const feedbackHtml = getFeedback(score, totalPossibleScore);
+
+            // Display Results
+            document.getElementById('finalScore').textContent = score;
+            document.getElementById('feedbackArea').innerHTML = feedbackHtml;
+            document.getElementById('results').classList.remove('hidden');
+
+            // Scroll to results
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
